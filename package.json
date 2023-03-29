@@ -1,0 +1,15 @@
+{
+  "name": "swagger-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Axel Smeets",
+  "license": "MIT",
+  "dependencies": {
+    "@stoplight/json-schema-ref-parser": "github:stoplightio/json-schema-ref-parser",
+    "js-yaml": "^4.1.0"
+  }
+}
