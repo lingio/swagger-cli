@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 //
 // node index.js <path-to-openapi3-spec.yaml>
 //
