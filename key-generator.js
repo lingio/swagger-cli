@@ -8,13 +8,16 @@ const { get } = require("@stoplight/json-schema-ref-parser/lib/bundle/util/objec
 const MAX_ATTEMPTS = 20;
 
 function prettify (key) {
-  return capitalize(key.replace(/(?:\.|[\\/]+)([a-z])?/g, (_, letter, i) => {
-    if (isVersionId(key, letter, i)) {
-      return `.${letter}`;
-    }
+  const subkeys = key.split('-').map(subkey => {
+    return capitalize(subkey.replace(/(?:\.|[\\/]+)([a-z])?/g, (_, letter, i) => {
+      if (isVersionId(subkey, letter, i)) {
+        return `.${letter}`;
+      }
 
-    return letter === undefined ? i === 0 ? "" : "_" : `_${letter.toUpperCase()}`;
-  }));
+      return letter === undefined ? i === 0 ? "" : "_" : `_${letter.toUpperCase()}`;
+    }));
+  });
+  return subkeys.join('');
 }
 
 function suggestKey (takenKeys, key, keyPath) {
