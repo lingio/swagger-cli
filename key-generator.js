@@ -136,7 +136,6 @@ Object.assign(KeyGenerator.prototype, {
   generateKeyForFilepath (schema, filepath, pathFromRoot) {
     if (!this.hasExistingGeneratedKey(schema, filepath)) {
       let key = this.generateUniqueKey(schema, this.getPrettifiedKeyForFilepath(filepath), pathFromRoot, filepath);
-
       this.registerNewGeneratedKey(schema, filepath, key, pathFromRoot);
     }
 
@@ -156,9 +155,10 @@ Object.assign(KeyGenerator.prototype, {
 
   generateKeyForPointer (schema, pointer, pathFromRoot) {
     if (!this.hasExistingGeneratedKey(schema, pointer)) {
+
       let fragment = KeyGenerator.appendSlash(this.root(pathFromRoot).slice(1));
       let actualPath = pointer.split(fragment).slice(1);
-      let key = this.generateUniqueKey(schema, prettify(actualPath.join("/")), pathFromRoot);
+      let key = this.generateUniqueKey(schema, prettify(actualPath.pop()), pathFromRoot);
 
       this.registerNewGeneratedKey(schema, pointer, key, pathFromRoot);
     }
