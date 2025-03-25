@@ -12,7 +12,7 @@
   "author": "Axel Smeets",
   "license": "MIT",
   "dependencies": {
-    "@stoplight/json-schema-ref-parser": "github:stoplightio/json-schema-ref-parser",
+    "@stoplight/json-schema-ref-parser": "github:stoplightio/json-schema-ref-parser#v9.2.6",
     "js-yaml": "^4.1.0"
   }
 }
