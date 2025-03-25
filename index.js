@@ -3,7 +3,7 @@
 // node index.js <path-to-openapi3-spec.yaml>
 //
 const $RefParser = require('@stoplight/json-schema-ref-parser');
-const createStoplightDefaults = require('@stoplight/json-schema-ref-parser/lib/bundle/stoplight/defaults');
+const createStoplightDefaults = require('./defaults');
 const jsyaml = require('js-yaml');
 const path = require('path');
 
@@ -24,7 +24,7 @@ async function cli(file) {
 
 	const content = jsyaml.dump(bundled, {
 		indent: 2,
-		lindeWidth: Infinity,
+		lineWidth: Infinity,
 		noRefs: true,
 	});
 
